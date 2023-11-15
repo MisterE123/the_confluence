@@ -70,9 +70,12 @@ local function get_river_existence(x,z,rivernoise)
 end
 
 
-local c_stone = minetest.get_content_id("default:stone")
-local c_water = minetest.get_content_id("default:water_source")
-local c_rwater = minetest.get_content_id("default:river_water_source")
+local c_stone, c_water, c_rwater
+minetest.register_on_mods_loaded(function()
+    c_stone = minetest.get_content_id("mapgen_stone")
+    c_water = minetest.get_content_id("mapgen_water_source")
+    c_rwater = minetest.get_content_id("mapgen_river_water_source")
+end)
 
 local water_level = 0
 
